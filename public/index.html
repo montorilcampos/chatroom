@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Club Panther - Sign Up / Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>WELCOME TO MONSTER BASH</h1>
+
+  <!-- Sign-Up Form -->
+  <h2 id="signup-title">Sign Up</h2>
+  <form id="signup-form">
+    <label for="signup-username">Username</label>
+    <input type="text" id="signup-username" name="username" placeholder="Enter your username" required>
+
+    <label for="signup-password">Password</label>
+    <input type="password" id="signup-password" name="password" placeholder="Enter your password" required>
+
+    <label for="signup-character">Choose Your Character:</label>
+    <select id="signup-character" name="character_choice">
+      <option value="char1">Goblin</option>
+      <option value="char2">Fire Worm</option>
+      <option value="char3">Mushroom</option>
+      <option value="char4">Skeleton</option>
+      <option value="char5">Flying Eye</option>
+    </select>
+
+    <button type="submit">Sign Up</button>
+  </form>
+
+  <!-- Login Form -->
+  <h2 id="login-title">Login</h2>
+  <form id="login-form">
+    <label for="login-username">Username</label>
+    <input type="text" id="login-username" name="username" placeholder="Enter your username" required>
+
+    <label for="login-password">Password</label>
+    <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <!-- 2D Map Section (Initially Hidden) -->
+  <div id="map-container" style="display: none;">
+    <img src="assets/map.png" id="map" alt="2D Map">
+    
+    <!-- Character element (starting point) -->
+    <div id="character" style="position: absolute; top: 100px; left: 100px;">
+      <img src="assets/char1.gif" id="character-img" alt="Character">
+      <div id="speech-bubble" style="display: none;"></div>
+      <div id="username" style="text-align: center;">Username</div>
+    </div>
+  </div>
+
+  <!-- Message Input (Moved outside map-container) -->
+  <div id="message-container" style="display: none;">
+    <input type="text" id="message-input" maxlength="40" placeholder="Type your message... (max 40 chars)">
+    <button id="send-message-button">Send</button>
+  </div>
+
+  <!-- Logout Button (Moved outside map-container) -->
+  <button id="logout-button" style="display: none;">Logout</button>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

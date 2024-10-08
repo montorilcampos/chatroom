@@ -1,0 +1,263 @@
+/* General Page Styling */
+body {
+  font-family: 'Shadow of the Deads', 'Courier New', monospace;
+  background-color: #010101;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-image: url('assets/Tavern by vertibirdo.gif');
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+  image-rendering: pixelated; /* Ensure GIF looks pixelated on larger screens */
+}
+
+/* Font Style */
+@font-face {
+  font-family: 'Shadow of the Deads';
+  src: url('../assets/PlumpPixel.ttf');
+}
+@font-face {
+  font-family: 'Text';
+  src: url('../assets/VPPixel-Simplified.otf');
+}
+
+
+h1 {
+  margin-top: 20px;
+  font-size: 36px;
+  font-family: 'Shadow of the Deads';
+  color: #fff;
+  text-shadow: 2px 2px 0px #000; /* Simple retro pixel-shadow */
+}
+
+h2 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 24px;
+  text-shadow: 2px 2px 0px #000;
+}
+
+/* Forms */
+form {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border: 3px solid #FFF;
+  border-radius: 0; /* Remove rounded corners */
+  box-shadow: 4px 4px 0px #444; /* Pixel-style shadow */
+  width: 300px;
+  margin: 20px auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #fff;
+  font-family: 'Shadow of the Deads', monospace;
+  text-shadow: 1px 1px 0px #000;
+}
+
+input[type="text"], input[type="password"], select {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 15px;
+  border: 2px solid #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-family: 'Text', monospace;
+  font-size: medium;
+  color: #ffffff;
+
+  border-radius: 0; /* Boxy, pixel-like look */
+  box-shadow: inset 2px 2px 0px #444;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, select:focus {
+  border-color: #4CAF50;
+}
+
+/* Pixelated Buttons */
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #FFF;
+  border-radius: 0; /* Remove rounded corners */
+  cursor: pointer;
+  font-family: 'Shadow of the Deads', monospace;
+  text-shadow: 1px 1px 0px #000;
+  box-shadow: 4px 4px 0px #444; /* Pixel-style shadow */
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: translate(-2px, -2px); /* Slight hover movement for retro effect */
+}
+
+button:active {
+  box-shadow: 2px 2px 0px #222; /* Deeper shadow on click */
+  transform: translate(1px, 1px); /* Reverse movement on click */
+}
+
+/* Map Container */
+#map-container {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  margin: 20px auto;
+  /* Removed the background-color property */
+}
+
+/* The Map itself */
+#map {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated; /* Ensure pixelated look on the map */
+  filter: drop-shadow(0 0 5px white) drop-shadow(0 0 5px white) drop-shadow(0 0 5px white); /* Multiple shadows for thicker, more opaque effect */
+}
+
+/* Character Style */
+#character {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  text-align: center; /* Ensure child elements are centered */
+  transition: top 0.3s linear, left 0.3s linear; /* Smooth transition over 1 second */
+}
+
+#character-img {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated; /* Pixelated character images */
+}
+
+#username {
+  font-size: 12px;
+  margin-top: 5px; /* Space between the image and the username */
+  color: white;
+  width: 100%;
+  text-align: center;
+  text-shadow: 1px 1px 0px #000;
+}
+
+/* Pixelated Message Input */
+#message-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  display: flex;
+}
+
+#message-input {
+  flex: 1;
+  height: 30px;
+  font-size: 16px;
+  border: 2px solid #fff;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-family: 'Text';
+  text-shadow: 1px 1px 0px #000;
+}
+
+#send-message-button {
+  width: 80px;
+  height: 40px;
+  background-color: #4CAF50;
+  color: white;
+  border: 2px solid #FFF;
+  border-radius: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Shadow of the Deads', monospace;
+  text-shadow: 1px 1px 0px #000;
+}
+
+#send-message-button:hover {
+  background-color: #45a049;
+  transform: translate(-2px, -2px);
+}
+
+#send-message-button:active {
+  box-shadow: 2px 2px 0px #222;
+  transform: translate(1px, 1px);
+}
+
+/* Logout Button Styling */
+#logout-button {
+  width: 100px;
+  padding: 10px;
+  background-color: #f44336;
+  color: white;
+  border: 2px solid #FFF;
+  border-radius: 0;
+  cursor: pointer;
+  margin: 0 auto 20px auto;
+  display: block;
+  box-shadow: 4px 4px 0px #444;
+  font-family: 'Shadow of the Deads', monospace;
+  text-shadow: 1px 1px 0px #000;
+}
+
+#logout-button:hover {
+  background-color: #d32f2f;
+  transform: translate(-2px, -2px);
+}
+
+#logout-button:active {
+  box-shadow: 2px 2px 0px #222;
+  transform: translate(1px, 1px);
+}
+
+/* Speech Bubble Styling */
+#speech-bubble {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  font-family: 'Text', monospace;
+  border: 2px solid black;
+  border-radius: 0; /* Remove rounded corners for pixel look */
+  padding: 5px;
+  max-width: 160px; /* Adjust the max-width to allow for around 12-20 characters per line */
+  word-wrap: break-word; /* Break long words to fit in the bubble */
+  white-space: normal; /* Allow normal text wrapping */
+  line-height: 1.2;
+  text-align: left; /* Optional: Left-align text in the speech bubble */
+}
+
+
+/* Pixelated Character for Multiple Users */
+.character {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  text-align: center;
+}
+
+.character img {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated; /* Pixelate the character images */
+}
+
+.character .speech-bubble {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Text', monospace;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 0;
+  padding: 5px;
+  max-width: 200px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
