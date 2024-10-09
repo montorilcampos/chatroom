@@ -1,5 +1,3 @@
-// server.js
-
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
@@ -21,21 +19,30 @@ app.use(express.json());
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
 
-// Enable CORS if necessary
+// Allowed origins for CORS
+const allowedOrigins = ['http://localhost:3000', 'https://monster-bash.onrender.com'];
+
+// Enable CORS
 app.use(
   cors({
-    origin: 'http://localhost:3000',
-    credentials: true,
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true, // Allow credentials (cookies, etc.)
   })
 );
 
 // PostgreSQL database connection pool
+const isProduction = process.env.NODE_ENV === 'production';
+const connectionString = process.env.DATABASE_URL || 'postgresql://postgres1:WzwefwvkPUHIXqL7ufLt3KW87gnCweUs@dpg-cs2rv7hu0jms738vhh70-a/club_panther';
+
 const db = new Pool({
-  host: process.env.DB_HOST, // Database host
-  user: process.env.DB_USER, // Database user
-  password: process.env.DB_PASSWORD, // Database password
-  database: process.env.DB_NAME, // Database name
-  port: process.env.DB_PORT || 5432, // Database port (5432)
+  connectionString: connectionString,
+  ssl: isProduction ? { rejectUnauthorized: false } : false, // Enable SSL for production, disable for local dev
 });
 
 // Test the database connection
@@ -55,7 +62,7 @@ io.on('connection', (socket) => {
 
   // Handle user initialization
   socket.on('init', (userData) => {
-    // Retrieve user data from database
+    // Retrieve user data from the database
     const findUserQuery = 'SELECT position, message FROM users WHERE username = $1';
     db.query(findUserQuery, [userData.username], (err, result) => {
       if (err) {
@@ -155,8 +162,7 @@ app.post('/signup', async (req, res) => {
           return res.status(500).json({ message: 'Server error' });
         }
 
-        const insertUserQuery =
-          'INSERT INTO users (username, password, character_choice) VALUES ($1, $2, $3)';
+        const insertUserQuery = 'INSERT INTO users (username, password, character_choice) VALUES ($1, $2, $3)';
         db.query(insertUserQuery, [username, hashedPassword, character_choice], (err) => {
           if (err) {
             console.error('Error inserting user:', err);
@@ -225,6 +231,6 @@ app.post('/login', async (req, res) => {
 });
 
 // Start the server on port 3000
-server.listen(3000, () => {
-  console.log('Server running on port 3000');
+server.listen(process.env.PORT || 3000, () => {
+  console.log(`Server running on port ${process.env.PORT || 3000}`);
 });
