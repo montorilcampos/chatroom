@@ -31,8 +31,8 @@ window.onload = function () {
       usernameDiv.textContent = "Default User"; // Fallback username
     }
 
-    // Initialize Socket.io connection
-    socket = io('http://localhost:3000');
+    // Initialize Socket.io connection to your backend URL
+    socket = io('https://monster-bash.onrender.com');
 
     // Emit 'init' event to the server with user data
     socket.emit('init', {
@@ -72,8 +72,8 @@ window.onload = function () {
     const password = document.getElementById('signup-password').value;
     const character_choice = document.getElementById('signup-character').value;
 
-    // Send request to the backend using full URL
-    const response = await fetch('http://localhost:3000/signup', {
+    // Send request to the backend using your deployed backend URL
+    const response = await fetch('https://monster-bash.onrender.com/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password, character_choice }),
@@ -97,8 +97,8 @@ window.onload = function () {
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
 
-    // Send request to the backend using full URL
-    const response = await fetch('http://localhost:3000/login', {
+    // Send request to the backend using your deployed backend URL
+    const response = await fetch('https://monster-bash.onrender.com/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
