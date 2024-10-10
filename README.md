@@ -1,7 +1,5 @@
 # Responsive Chatroom - Monster Bash
 
-Submitted by: *Frank Mediavilla*
-
 *Monster bash* is a web application in which users can log into a server and chat in real time with friends.
 
 ## Features
