@@ -26,7 +26,7 @@ The application includes the following features:
 
 ## Video Walkthrough
 
-<img src='./misc/login.gif'>
+<img src='./misc/signup.gif'>
 
 <img src='./misc/gameplay.gif'>
 
