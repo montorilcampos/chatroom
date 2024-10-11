@@ -1,6 +1,6 @@
 # Responsive Chatroom - Monster Bash
 
-*Monster bash* is a web application in which users can log into a server and chat in real time with friends.
+*Monster Bash* is a web application in which users can log into a server and chat in real time with friends.
 
 ## Features
 
@@ -26,13 +26,13 @@ The application includes the following features:
 
 ## Video Walkthrough
 
-<img src='./misc/signup.gif'>
+<img src='./misc/signupgif.gif'>
 
-<img src='./misc/gameplay.gif'>
+<img src='./misc/gameplaygif.gif'>
 
 ## License
 
-    Copyright 2024 [name of copyright owner]
+    Copyright 2024
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
