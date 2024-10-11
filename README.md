@@ -2,6 +2,10 @@
 
 *Monster Bash* is a web application in which users can log into a server and chat in real time with friends.
 
+## Try it yourself
+
+https://monster-bash.onrender.com/
+
 ## Features
 
 The application includes the following features:
