@@ -36,7 +36,7 @@ The application includes the following features:
 
 ## License
 
-    Copyright 2024
+    Copyright 2024 Cecilia Montoril de Campos
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
