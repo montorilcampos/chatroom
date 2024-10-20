@@ -22,7 +22,7 @@ The application includes the following features:
   - Users can use a text box to send a message that will appear on screen to all logged-in users for 5 seconds.
   - Users can click to move their character around the map, as well as see other characters' movements.
 - [x] User can log out via a button:
-  - The Log Out button allows a user to og out from their account.
+  - The Log Out button allows a user to log out from their account.
   - The user will disconnect from the server and their character will no longer be visible to other users.
 - [x] Real-time data sharing between users:
   - SocketIO provides simultaneous real time injection and fetching of all connected users' data into the database.
